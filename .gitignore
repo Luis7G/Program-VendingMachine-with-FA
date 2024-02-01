@@ -22,3 +22,29 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+.fake
+
+# Archivos y carpetas generados automáticamente por IntelliJ
+.idea
+.project
+.settings
+.gradle
+.git
+bin
+out
+target
+
+# Archivos temporales
+*.iml
+*.class
+*.log
+*.tmp
+*.swp
+*~
+
+# Archivos de configuración personal
+.gitignore
+.editorconfig
+.npmrc
+.prettierrc
