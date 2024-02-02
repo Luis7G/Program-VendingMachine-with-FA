@@ -24,8 +24,7 @@ public class Main {
     public void procesarCompra(String monedas) {
         // Convertir la entrada de monedas a un arreglo
         List<Integer> listaMonedas = Arrays.stream(monedas.split(","))
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
+                .map(Integer::parseInt).toList();
 
         // Actualizar saldo según las monedas ingresadas
         for (int moneda : listaMonedas) {
@@ -62,10 +61,7 @@ public class Main {
         if (this.saldo >= this.costoProductoSeleccionado) {
             // Entregar producto y calcular vuelto si es necesario
             System.out.println("Compra exitosa. ¡Disfruta tu " + nombresProductos[opcionProducto - 1] + "!");
-            int vuelto = this.saldo - this.costoProductoSeleccionado;
-            if (vuelto > 0) {
-                System.out.println("Vuelto: " + vuelto + " ctvs");
-            }
+            //procesarVuelto(); //hace que la maquina no entrege el vuelto.
         } else {
             System.out.println("Saldo insuficiente. Selecciona un producto más barato.");
         }
@@ -74,6 +70,13 @@ public class Main {
         this.estadoActual = 0;
         this.saldo = 0;
         this.costoProductoSeleccionado = 0;
+    }
+
+    private void procesarVuelto() {
+        int vuelto = this.saldo - this.costoProductoSeleccionado;
+        if (vuelto > 0) {
+            System.out.println("Vuelto: " + vuelto + " ctvs");
+        }
     }
 
     public static void main(String[] args) {
